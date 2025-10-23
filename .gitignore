@@ -1,0 +1,16 @@
+# Build artifacts
+/build/
+*.o
+*.obj
+*.exe
+*.out
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# System files
+.DS_Store
+Thumbs.db
