@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 #include <string>
 #include "Station.h"
@@ -13,5 +15,7 @@ class City{
         City(std::string name);
         void loadStationsFromCSV(const std::string& fileName);
         void loadLinesFromCSV(const std::string& fileName);
+        void printStations();
+        void buildAdjacency();
 
 };

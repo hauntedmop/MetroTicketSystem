@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <iostream>
 
 City::City(std::string cityName)
     : name(cityName)
@@ -78,4 +79,23 @@ void City::loadLinesFromCSV(const std::string& fileName){
         lines.push_back(line);
     }
     file.close();
+}
+
+void City::printStations(){
+    for(Station& station : stations){
+        std::cout << station.getName() << std::endl;
+    }
+}
+
+void City::buildAdjacency(){
+    for(const MetroLine& line : lines){
+        const auto& lineStations = line.getStations();
+        for(size_t i = 0; i < lineStations.size(); i++){
+            Station* current = lineStations[i];
+            if (i > 0)
+                current->addAdjacent(lineStations[i-1]);
+            if (i < lineStations.size()-1)
+                current->addAdjacent(lineStations[i+1]);
+        }
+    }
 }
