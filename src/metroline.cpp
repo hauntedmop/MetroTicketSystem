@@ -12,3 +12,7 @@ MetroLine::MetroLine(int lineNumber, std::string colour, std::vector<Station*> l
 const std::vector<Station*>& MetroLine::getStations() const{
     return stations;
 }
+
+const int MetroLine::getLineID() const{
+    return lineId;
+}

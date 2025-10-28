@@ -1,4 +1,5 @@
 #include "Station.h"
+#include <algorithm>
 
 Station::Station(std::string cityName, std::vector<int> lineIds, std::vector<int> positions, std::string stationName)
     : city(cityName), lines(lineIds), linePositions(positions), name(stationName)
@@ -14,10 +15,11 @@ const std::string Station::getName() const{
     return name;
 }
 
-const std::vector<Station*>& Station::getAdjacent() const{
-    return adjacentStations;
+const std::vector<Edge>& Station::getAdjacent() const{
+    return edgeMap;
 }
 
-void Station::addAdjacent(Station* neighbour){
-    adjacentStations.push_back(neighbour);
+void Station::addEdge(Station* neighbour, int lineNum){
+    if(std::find(edgeMap.begin(), edgeMap.end(), Edge{neighbour, lineNum}) == edgeMap.end())
+        edgeMap.push_back({neighbour, lineNum});
 }

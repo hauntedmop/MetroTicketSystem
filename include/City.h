@@ -10,6 +10,7 @@ class City{
         std::string name;
         std::vector<Station> stations;
         std::vector<MetroLine> lines;
+        int basePrice;
 
     public:
         City(std::string name);

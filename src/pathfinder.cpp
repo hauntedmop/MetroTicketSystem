@@ -32,7 +32,8 @@ std::vector<Station*> PathFinder::findPath(){
         if(currentStation == endStation)
             return reconstructPath(parent, endStation);
 
-        for(Station* neighbour : currentStation->getAdjacent()){
+        for(Edge edge : currentStation->getAdjacent()){
+            Station* neighbour = edge.neighbour;
             if(visited.find(neighbour) == visited.end()){
                 queue.push(neighbour);
                 visited.insert(neighbour);

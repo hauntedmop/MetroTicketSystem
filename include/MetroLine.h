@@ -14,4 +14,5 @@ class MetroLine{
     public:
         MetroLine(int lineNumber, std::string colour, std::vector<Station*> lineStations, std::string cityName);
         const std::vector<Station*>& getStations() const;
+        const int getLineID() const;
 };

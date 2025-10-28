@@ -93,9 +93,17 @@ void City::buildAdjacency(){
         for(size_t i = 0; i < lineStations.size(); i++){
             Station* current = lineStations[i];
             if (i > 0)
-                current->addAdjacent(lineStations[i-1]);
+                current->addEdge(lineStations[i-1], line.getLineID());
             if (i < lineStations.size()-1)
-                current->addAdjacent(lineStations[i+1]);
+                current->addEdge(lineStations[i+1], line.getLineID());
         }
     }
+}
+
+const double City::getBasePrice() const{
+    return basePrice;
+}
+
+const double City::getStationPrice() const{
+    return stationPrice;
 }
