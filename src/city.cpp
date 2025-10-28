@@ -107,3 +107,16 @@ const double City::getBasePrice() const{
 const double City::getStationPrice() const{
     return stationPrice;
 }
+
+Station* City::getStationByName(const std::string& name){
+    for(Station& station : stations){
+        if(station.getName() == name){
+            return &station;
+        }
+    }
+    return nullptr;
+}
+
+const std::string City::getName() const{
+    return name;
+}

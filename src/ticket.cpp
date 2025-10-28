@@ -4,10 +4,11 @@
 #include "Ticket.h"
 #include "Station.h"
 
-Ticket::Ticket(int id, std::vector<Station*> path, std::string name, std::string city)
-    : ticketID(id), stationPath(path), passengerName(name), cityName(city)
+Ticket::Ticket(int id, std::vector<Station*> path, std::string name, City* city)
+    : ticketID(id), stationPath(path), passengerName(name), city(city)
 {
-
+    cityName = city->getName();
+    calculatePrice();
 }
 
 const int Ticket::getId() const{
@@ -58,4 +59,8 @@ void Ticket::calculatePrice(){
         return;
     }
     price = city->getBasePrice() + (stationPath.size()-1)*(city->getStationPrice());
+}
+
+const std::string Ticket::getPassengerName() const{
+    return passengerName;
 }

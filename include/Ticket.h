@@ -21,6 +21,7 @@ class Ticket{
         const int getId() const;
         const std::vector<Station*> getPath() const;
         const double getPrice() const;
+        const std::string getPassengerName() const;
 
         void printInfo() const;
         void printInstructions() const;

@@ -10,7 +10,8 @@ class City{
         std::string name;
         std::vector<Station> stations;
         std::vector<MetroLine> lines;
-        int basePrice;
+        double basePrice = 30;
+        double stationPrice = 10;
 
     public:
         City(std::string name);
@@ -18,5 +19,9 @@ class City{
         void loadLinesFromCSV(const std::string& fileName);
         void printStations();
         void buildAdjacency();
+
+        const double getBasePrice() const;
+        const double getStationPrice() const;
+        Station* getStationByName(const std::string& name) const;
 
 };
