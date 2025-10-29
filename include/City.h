@@ -14,7 +14,9 @@ class City{
         double stationPrice = 10;
 
     public:
-        City(std::string name);
+        City(std::string name, double basePrice, double stationPrice);
+
+        static City loadCityFromCSV(const std::string& fileName, const std::string& cityName);
         void loadStationsFromCSV(const std::string& fileName);
         void loadLinesFromCSV(const std::string& fileName);
         void printStations();
@@ -22,6 +24,7 @@ class City{
 
         const double getBasePrice() const;
         const double getStationPrice() const;
-        Station* getStationByName(const std::string& name) const;
+        const std::string getName() const;
+        Station* getStationByName(const std::string& name);
 
 };

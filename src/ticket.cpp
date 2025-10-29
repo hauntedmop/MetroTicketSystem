@@ -24,12 +24,23 @@ const std::vector<Station*> Ticket::getPath() const{
 }
 
 void Ticket::printInfo() const{
+    if(stationPath.empty()){
+        std::cout << "Invalid Ticket path" << std::endl;
+        return;
+    }
     std::cout << "Passenger name is: " << passengerName << std::endl;
-    std::cout << "Starting station is: " << stationPath[0]->getName() << std::endl;
-    std::cout << "Destination station is: " << stationPath.back()->getName() << std::endl;
+    if(stationPath.size() >= 1)
+        std::cout << "Starting station is: " << stationPath[0]->getName() << std::endl;
+    if(stationPath.size() >= 2)
+        std::cout << "Destination station is: " << stationPath.back()->getName() << std::endl;
+    std::cout << "Price is: " << price << std::endl;
 }
 
 void Ticket::printInstructions() const{
+    if(stationPath.size() < 2){
+        std::cout << "No route instructions available (path too short). " << std::endl;
+        return;
+    }
     int currentLine = -1;
     for(const Edge& edge: stationPath[0]->getAdjacent())
         if(edge.neighbour == stationPath[1]){

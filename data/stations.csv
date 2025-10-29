@@ -8,3 +8,57 @@ Pettleburg,Market Square,1,6
 Pettleburg,East End,1,7
 Pettleburg,Hilltop,1,8
 Pettleburg,Lakeview,1,9
+
+Slateport,Harbor Front,1,1
+Slateport,Coral Pier,1,2
+Slateport,Marina Bay,1,3
+Slateport,Reef Point,1,4
+Slateport,Dew Harbor,1,5
+Slateport,Seagull Street,1,6
+Slateport,Shell Plaza,1,7,2,6
+Slateport,Waterfront Park,1,8
+Slateport,Lighthouse,1,9
+Slateport,Tide Terminal,1,10
+Slateport,Market Square,2,1
+Slateport,Sunny Court,2,2
+Slateport,Seaside Plaza,2,3
+Slateport,Boardwalk,2,4
+Slateport,Palm Grove,2,5
+Slateport,Coral Garden,2,7
+Slateport,Ocean View,2,8
+Slateport,Ferry Gate,2,9
+Slateport,Sunset Loop,2,10
+
+Lavaridge,Hot Springs Central,1,1,2,1,3,10,4,5,5,1
+Lavaridge,Ash Ridge,1,2,3,5
+Lavaridge,Blazeway,1,3
+Lavaridge,Cinder Court,1,4
+Lavaridge,Inferno Gate,1,5,5,5
+Lavaridge,Volcano Plaza,1,6,2,4,4,1,5,7
+Lavaridge,Charcoal Alley,1,7,5,6
+Lavaridge,Smokestack,1,8
+Lavaridge,Ember End,1,9,5,10
+Lavaridge,Obsidian Market,1,10,2,6,3,6,5,8
+Lavaridge,Heat Haven,2,2
+Lavaridge,Sulfur Street,2,3,4,3
+Lavaridge,Molten Crossing,2,5
+Lavaridge,Basalt Park,2,7
+Lavaridge,Lava Dome,2,8,3,1
+Lavaridge,Thermal Tunnel,2,9,4,6
+Lavaridge,Inferno Outpost,2,10
+Lavaridge,Rocky Trail,3,2
+Lavaridge,Granite Plaza,3,3
+Lavaridge,Canyon Bend,3,4
+Lavaridge,Quartz Point,3,7
+Lavaridge,Pebble Gate,3,8
+Lavaridge,Crater Cross,3,9
+Lavaridge,Misty Path,4,2
+Lavaridge,Geyser Gate,4,3
+Lavaridge,Fog View,4,7
+Lavaridge,Vapor Plaza,4,8
+Lavaridge,Cloud Way,4,9
+Lavaridge,Boil End,4,10
+Lavaridge,Kindle Crossing,5,2
+Lavaridge,Torch Plaza,5,3
+Lavaridge,Firelight Park,5,4
+Lavaridge,Burnside Court,5,9

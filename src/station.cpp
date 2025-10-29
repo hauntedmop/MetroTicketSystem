@@ -23,3 +23,12 @@ void Station::addEdge(Station* neighbour, int lineNum){
     if(std::find(edgeMap.begin(), edgeMap.end(), Edge{neighbour, lineNum}) == edgeMap.end())
         edgeMap.push_back({neighbour, lineNum});
 }
+
+int Station::getLinePosition(int lineNumber) const {
+    for (size_t i = 0; i < lines.size(); ++i) {
+        if (lines[i] == lineNumber) {
+            return linePositions[i];
+        }
+    }
+    return -1;
+}

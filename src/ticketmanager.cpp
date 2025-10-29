@@ -8,7 +8,7 @@
 #include "TicketManager.h"
 
 TicketManager::TicketManager(City* linkedCity)
-    : city(linkedCity)
+    : city(linkedCity), allTickets(), newTickets(), nextTicketID(1)
 {
 
 }
@@ -32,7 +32,7 @@ void TicketManager::loadTickets(const std::string& fileName){
         }
 
         int ticketID = stoi(row[0]);
-        if(nextTicketID < ticketID)
+        if(nextTicketID >= ticketID)
             nextTicketID = ticketID+1;
         std::string passenger = row[1];
         std::string cityName = row[2];
@@ -51,20 +51,20 @@ void TicketManager::loadTickets(const std::string& fileName){
     
 }
 
-void TicketManager::saveTickets(const std::string& fileName) const{
+void TicketManager::saveTickets(const std::string& fileName){
     std::ofstream file(fileName, std::ios::app);
     if(!file.is_open())
         throw std::runtime_error("No CSV file opened");
 
-    for(const Ticket& ticket : newTickets){
-        file << ticket.getId() << ","
-             << ticket.getPassengerName() << ","
+    for(const Ticket* ticket : newTickets){
+        file << ticket->getId() << ","
+             << ticket->getPassengerName() << ","
              << city->getName() << ","
-             << ticket.getPrice();
+             << ticket->getPrice() << ",";
             
-        for (size_t i = 0; i < ticket.getPath().size(); i++) {
-            file << ticket.getPath()[i]->getName();
-            if (i != ticket.getPath().size() - 1)
+        for (size_t i = 0; i < ticket->getPath().size(); i++) {
+            file << ticket->getPath()[i]->getName();
+            if (i != ticket->getPath().size() - 1)
                 file << ",";
         }
 
@@ -72,6 +72,7 @@ void TicketManager::saveTickets(const std::string& fileName) const{
     }
 
     file.close();
+    newTickets.clear();
 }
 
 const Ticket* TicketManager::findTicketbyID(int id) const{
@@ -86,8 +87,23 @@ int TicketManager::generateTicketID(){
 }
 
 Ticket* TicketManager::createTicket(const std::string& passengerName, const std::vector<Station*>& stationPath, City* city){
-    Ticket ticket(generateTicketID(), stationPath, passengerName, city);
-    allTickets.push_back(ticket);
-    newTickets.push_back(allTickets.back());
-    return &allTickets.back();
+    int id = generateTicketID();
+    Ticket& newTicket = allTickets.emplace_back(id, stationPath, passengerName, city);
+    newTickets.push_back(&newTicket);
+    return &newTicket;
+}
+
+void TicketManager::printAllTickets() const{
+    if(allTickets.empty()){
+        std::cout << "No tickets available" << std::endl;
+        return;
+    }
+
+    for(const Ticket& ticket : allTickets){
+        std::cout << ticket.getId() << " "
+                  << ticket.getPassengerName() << " from "
+                  << ticket.getPath().front()->getName() << " to "
+                  << ticket.getPath().back()->getName() << " Price "
+                  << ticket.getPrice() << std::endl;
+    }
 }

@@ -16,3 +16,7 @@ const std::vector<Station*>& MetroLine::getStations() const{
 const int MetroLine::getLineID() const{
     return lineId;
 }
+
+const std::string MetroLine::getName() const{
+    return name;
+}

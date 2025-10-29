@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 
+class Station; 
 
 struct Edge{
     Station* neighbour;
@@ -35,5 +36,7 @@ class Station{
         const std::vector<Edge>& getAdjacent() const;
 
         void addEdge(Station* neighbour, int lineNum);
+        int getLinePosition(int lineNumber) const;
+
 
 };

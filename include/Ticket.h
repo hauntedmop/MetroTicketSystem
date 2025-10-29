@@ -16,7 +16,7 @@ class Ticket{
         void calculatePrice();
 
     public:
-        Ticket(int id, std::vector<Station*> path, std::string name, std::string city);
+        Ticket(int id, std::vector<Station*> path, std::string name, City* city);
 
         const int getId() const;
         const std::vector<Station*> getPath() const;
